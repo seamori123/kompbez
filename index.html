@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Помощник шифровальщика</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Помощник шифровальщика</h1>
+
+    <section class="card">
+      <h2>Раздел 1. Шифр Хилла над Z<sub>33</sub></h2>
+      <p class="subtitle">Ключ задаётся парой матриц <strong>(A, B)</strong>, где <code>C = A · P + B (mod 33)</code>.</p>
+
+      <div class="grid">
+        <label>
+          Матрица A (квадратная, строки с новой строки)
+          <textarea id="matrixA" rows="5" placeholder="Например:
+2 5
+1 3"></textarea>
+        </label>
+
+        <label>
+          Матрица B (вектор-столбец n×1)
+          <textarea id="matrixB" rows="5" placeholder="Например:
+7
+11"></textarea>
+        </label>
+      </div>
+
+      <label>
+        Текст (используется русский алфавит из 33 букв)
+        <textarea id="message" rows="4" placeholder="Введите текст для шифрования или расшифрования"></textarea>
+      </label>
+
+      <div class="actions">
+        <button id="encryptBtn" type="button">Зашифровать</button>
+        <button id="decryptBtn" type="button" class="secondary">Расшифровать</button>
+      </div>
+
+      <h3>Результат и ход решения</h3>
+      <div id="status" class="status" aria-live="polite"></div>
+      <pre id="details" class="details"></pre>
+      <div id="answer" class="answer"></div>
+    </section>
+
+    <section class="card">
+      <h2>Раздел 2. Перестановочный шифр (магический квадрат 4×4)</h2>
+      <p class="subtitle">Вводимые переменные можно менять, затем нажать «Решить задание 2».</p>
+      <div class="grid">
+        <label>
+          Известные элементы квадрата (формат: a12=3, a21=5, ...)
+          <textarea id="task2Known" rows="4" placeholder="a12=3, a21=5, a24=8, a33=7, a32=6"></textarea>
+        </label>
+        <label>
+          Шифртекст Y (16 символов)
+          <textarea id="task2Cipher" rows="4" placeholder="ZDUQBSSOEIASNIAA"></textarea>
+        </label>
+      </div>
+      <label>
+        Текст для шифрования
+        <textarea id="task2Phrase" rows="2" placeholder="КАРАБАСБАРАБАСА"></textarea>
+      </label>
+      <div class="actions">
+        <button id="solveTask2Btn" type="button">Решить задание 2</button>
+      </div>
+      <pre id="task2Output" class="details"></pre>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
