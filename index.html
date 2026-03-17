@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Помощник шифровальщика — Шифр Хилла над Z33</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Шифр Хилла над Z<sub>33</sub></h1>
+    <p class="subtitle">Ключ задаётся парой матриц <strong>(A, B)</strong>, где <code>C = A · P + B (mod 33)</code>.</p>
+
+    <section class="card">
+      <h2>1) Введите матрицы</h2>
+      <div class="grid">
+        <label>
+          Матрица A (квадратная, строки с новой строки)
+          <textarea id="matrixA" rows="5" placeholder="Например:
+2 5
+1 3"></textarea>
+        </label>
+
+        <label>
+          Матрица B (вектор-столбец n×1)
+          <textarea id="matrixB" rows="5" placeholder="Например:
+7
+11"></textarea>
+        </label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2) Введите текст</h2>
+      <label>
+        Текст (используется русский алфавит из 33 букв)
+        <textarea id="message" rows="4" placeholder="Введите текст для шифрования или расшифрования"></textarea>
+      </label>
+
+      <div class="actions">
+        <button id="encryptBtn" type="button">Зашифровать</button>
+        <button id="decryptBtn" type="button" class="secondary">Расшифровать</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Результат и ход решения</h2>
+      <div id="status" class="status" aria-live="polite"></div>
+      <pre id="details" class="details"></pre>
+      <div id="answer" class="answer"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
